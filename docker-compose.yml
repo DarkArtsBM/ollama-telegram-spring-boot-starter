@@ -1,0 +1,22 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+  meu-bot:
+    build: src
+    container_name: telegram-bot
+    depends_on:
+      - ollama
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - TELEGRAM_USERNAME=${TELEGRAM_USERNAME}
+      - OLLAMA_HOST=http://ollama:11434
+    restart: always
+
+volumes:
+  ollama_data:
