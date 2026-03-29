@@ -56,5 +56,10 @@ Ollama rodando localmente ou via Docker
 
 ---
 
-## Arquitetura e Fluxo de Dados
+# --- Fluxo de Dados ---
+
+``` 
 ![FluxoDeDados.png](images/FluxoDeDados.png)
+```
+
+
