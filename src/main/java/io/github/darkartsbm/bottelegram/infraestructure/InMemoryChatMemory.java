@@ -10,14 +10,13 @@ public class InMemoryChatMemory implements ChatMemoryRepository {
     private final Map<String, List<ChatMessage>> storage = new ConcurrentHashMap<>();
     private final int maxMessages;
 
-    // Recebe o limite via construtor (vindo da Configuração)
+
     public InMemoryChatMemory(int maxMessages) {
         this.maxMessages = maxMessages;
     }
 
     @Override
     public List<ChatMessage> findByChatId(String chatId) {
-        // Retorna uma cópia para evitar que mudanças externas quebrem o Map
         return new ArrayList<>(storage.getOrDefault(chatId, new ArrayList<>()));
     }
 
@@ -27,7 +26,6 @@ public class InMemoryChatMemory implements ChatMemoryRepository {
 
         history.add(message);
 
-        // Lógica de limpeza: se passar do limite, remove a primeira (mais antiga)
         while (history.size() > maxMessages) {
             history.remove(0);
         }

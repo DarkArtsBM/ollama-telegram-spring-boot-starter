@@ -15,7 +15,6 @@ public class BotTelegramApplication {
         SpringApplication.run(BotTelegramApplication.class, args);
     }
 
-    // Isso força o registro do bot no contexto do Telegram
     @Bean
     public TelegramBotsApi telegramBotsApi(TelegramAdapter bot) throws TelegramApiException {
         TelegramBotsApi api = new TelegramBotsApi(DefaultBotSession.class);

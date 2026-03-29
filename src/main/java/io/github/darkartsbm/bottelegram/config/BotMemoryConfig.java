@@ -15,7 +15,6 @@ public class BotMemoryConfig {
     @Bean
     @ConditionalOnMissingBean(ChatMemoryRepository.class)
     public ChatMemoryRepository chatMemoryRepository() {
-        // Passa o limite para o repositório em memória
         return new InMemoryChatMemory(maxMessages);
     }
 }

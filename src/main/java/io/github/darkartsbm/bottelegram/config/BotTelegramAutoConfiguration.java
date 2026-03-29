@@ -16,7 +16,7 @@ public class BotTelegramAutoConfiguration {
     public TelegramAdapter telegramAdapter(
             @Value("${meubot.telegram.token}") String token,
             @Value("${meubot.telegram.username}") String username,
-            @Lazy ResponderComIAUseCase useCase) { // O @Lazy aqui é vital!
+            @Lazy ResponderComIAUseCase useCase) {
         return new TelegramAdapter(token, username, useCase);
     }
 }

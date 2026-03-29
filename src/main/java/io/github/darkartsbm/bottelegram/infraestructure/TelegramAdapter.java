@@ -13,7 +13,7 @@ public class TelegramAdapter extends TelegramLongPollingBot implements ProvedorM
     private final String botUsername;
     private final ResponderComIAUseCase responderComIAUseCase;
 
-    // Construtor sem anotações de Spring (a Configuração cuidará disso)
+
     public TelegramAdapter(String botToken, String botUsername, ResponderComIAUseCase responderComIAUseCase) {
         this.botToken = botToken;
         this.botUsername = botUsername;
