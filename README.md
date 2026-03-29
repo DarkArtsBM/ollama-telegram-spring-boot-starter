@@ -56,10 +56,11 @@ Ollama rodando localmente ou via Docker
 
 ---
 
-# --- Fluxo de Dados ---
 
-``` 
-![FluxoDeDados.png](images/FluxoDeDados.png)
 ```
+# Fluxo de Dados
+
+![FluxoDeDados.png](images/FluxoDeDados.png)
+
 
 
