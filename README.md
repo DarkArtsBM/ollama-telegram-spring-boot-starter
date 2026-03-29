@@ -57,5 +57,4 @@ Ollama rodando localmente ou via Docker
 ---
 
 ## Arquitetura e Fluxo de Dados
-
-![Fluxo de Dados](images/FluxoDeDados.png)
+![FluxoDeDados.png](images/FluxoDeDados.png)
