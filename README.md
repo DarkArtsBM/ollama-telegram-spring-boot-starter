@@ -1,105 +1,89 @@
+[ Português 🇧🇷 ](README.pt.md) | [ English 🇺🇸 ](README.md)
+
+---
+
 # Ollama Telegram Spring Boot Starter 🤖
 
-Uma biblioteca Spring Boot (Starter) para criar bots de Telegram inteligentes e com memória de contexto, usando a IA local do Ollama de forma simples e rápida.
+---
+A Spring Boot Starter library to create intelligent Telegram bots with context memory, using local Ollama AI in a simple and fast way.
 
-## 📦 Instalação
-
-Adicione a dependência no seu `pom.xml`:
-
-``` xml
+## 📦 Installation
+Add the dependency to your pom.xml:
+```xml
 <dependency>
-    <groupId>io.github.darkartsbm</groupId>
-    <artifactId>ollama-telegram-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+<groupId>io.github.darkartsbm</groupId>
+<artifactId>ollama-telegram-spring-boot-starter</artifactId>
+<version>1.0.2</version>
 </dependency>
 ```
+## ⚠️ Lifecycle Note
 
-## ⚠️ Nota sobre o Ciclo de Vida
-``` xml
-Como este Starter utiliza Long Polling, 
-o Spring Boot pode encerrar a aplicação logo após o início por não detectar um servidor web ativo.
+```xml
+Since this Starter uses Long Polling, Spring Boot might shut down the application immediately after startup if it doesn't detect an active web server. To keep the bot running, you have two options:
 
-Para manter o bot rodando, você tem duas opções:
-
-Modo Web (Recomendado para Iniciantes): Adicione o 
+Web Mode (Recommended for Beginners): Add the following dependency. This will start an embedded Tomcat server to keep the application alive.
 
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web</artifactId>
-</dependency> 
+</dependency>
 
-Isso subirá um servidor Tomcat embutido que manterá a aplicação viva.
+Light Mode (Recommended for Performance): Do not add the web starter. Instead, set spring.main.keep-alive=true in your application.properties. This keeps the bot active while consuming much less RAM.
 
-Modo Light (Recomendado para Performance): Não adicione o starter web. 
-Apenas configure spring.main.keep-alive=true no seu application.properties. 
-Isso manterá o bot ativo consumindo muito menos memória RAM.
 ```
+## 📖 How to Use
+Configure your Telegram credentials and Ollama URL in your application.properties file.
 
-## 📖 Como Usar
+How to get your Telegram credentials:
+Talk to @BotFather and type /start.
 
-Configure suas credenciais e a URL do Ollama no seu arquivo application.properties:
+In the options menu, type /newbot.
 
-Como pegar suas credenciais do Telegram:
+Enter the name you want for your bot (this will be your USERNAME).
 
-Fale com o @BotFather e digite /start.
+Once the Username is set, it will send you an API key in this format: 123146612:HUHSAv...
 
-Na tela de opções, digite /newbot.
+Your TOKEN is exactly that generated key.
 
-Digite o nome que você quer dar ao seu bot (esse nome será o seu USERNAME).
+Configuration
+Add the settings below to your project:
 
-Logo após você decidir seu Username, ele lhe mandará uma chave de API neste formato: 123146612:HUHSAv...
+```xml
+application.properties
 
-O seu TOKEN é exatamente essa chave gerada.
+# --- Telegram Settings ---
+meubot.telegram.token=YOUR_TOKEN_HERE
+meubot.telegram.username=YOUR_BOT_USERNAME
 
-Adicione as configurações abaixo no seu projeto:
-```
-application.porperties
-
-# --- Configurações do Telegram ---
-meubot.telegram.token=SEU_TOKEN_AQUI
-meubot.telegram.username=NOME_DO_SEU_BOT
-
-# --- Configurações da IA (Ollama) ---
+# --- AI Settings (Ollama) ---
 meubot.ollama.url=http://localhost:11434/api/chat
 meubot.ollama.model=llama3.2:1b
 
-> **Obs:** Preferi deixar o `llama3.2:1b` como padrão por ser leve e funcional, mas sinta-se livre para usar qualquer modelo que você baixar, basta alterar o parâmetro no seu arquivo de configurações.
+Note: I chose llama3.2:1b as the default because it is lightweight and functional, but feel free to use any model you have downloaded by simply changing the parameter in your config file.
 
-2. Pronto! A biblioteca já configura automaticamente a conexão com o Telegram, gerencia a memória das conversas por usuário e responde utilizando o modelo de IA escolhido. Basta rodar sua aplicação Spring Boot!
+Done! The library automatically configures the Telegram connection, manages per-user conversation memory, and responds using the chosen AI model. Just run your Spring Boot application!
 
-3. Memória Persistente (Opcional):
-O bot já está configurado para aceitar uma interface que comporte o seu banco de dados, caso você queira implementar uma memória persistente a longo prazo em vez da memória em RAM padrão.
+Persistent Memory (Optional):
+The bot is pre-configured to accept an interface that supports your database, should you wish to implement long-term persistent memory instead of the default RAM storage.
 
-Requisitos
-Java 17 ou superior
+```
+Requirements
+Java 17 or higher
 
 Spring Boot 3.x
 
-Ollama rodando localmente ou via Docker
+Ollama running locally or via Docker
 
+## 🖥️ Architecture
+The library uses Hexagonal Architecture, decoupling AI logic and Memory Management from external platforms (Telegram/Ollama). This allows you to replace RAM storage with a Database by simply implementing an interface, without touching the Starter's core code.
 
----
-
-
-```
-## 🖥️ Arquitetura 
-
-A biblioteca utiliza **Arquitetura Hexagonal**, o que separa a lógica de IA e o Gerenciamento de Memória das plataformas externas (Telegram/Ollama). Isso permite que você substitua a memória RAM por um Banco de Dados apenas implementando uma interface, sem tocar no código do Starter.
-
-## 📚 Fluxo de Dados
+## 📚 Data Flow
 
 ![FluxoDeDados.png](images/FluxoDeDados.png)
 
-## 🛠️ Customização de Memória (Persistência)
+## 📝 License
+Distributed under The Apache License, Version 2.0.
 
-Por padrão, as conversas são salvas em **RAM** (perdem-se ao reiniciar). Para usar um banco de dados (MySQL, PostgreSQL, etc.):
-1. Implemente a interface `ChatMemoryRepository` no seu projeto.
-2. Crie a lógica de salvar e buscar do seu banco de dados nesta classe.
-3. Marque sua classe com `@Primary` ou `@Component`.
-   O Spring substituirá automaticamente a memória padrão pela sua versão de banco de dados.
-
-## 📝 Licença
-Distribuído sob The Apache License, Version 2.0.
 
 
 
