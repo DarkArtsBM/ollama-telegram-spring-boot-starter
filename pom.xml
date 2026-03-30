@@ -12,12 +12,12 @@
 
     <groupId>io.github.darkartsbm</groupId>
     <artifactId>ollama-telegram-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <name>Ollama Telegram Starter</name>
     <description>Biblioteca Spring Boot para criar bots de Telegram com memória inteligente usando IA do Ollama.</description>
-    <url>https://github.com/darkartsbm/seu-repositorio</url>
+    <url>https://github.com/DarkArtsBM/ollama-telegram-spring-boot-starter</url>
 
     <licenses>
         <license>
@@ -32,14 +32,14 @@
             <name>DarkArtsBM</name>
             <email>robsonsandro@hotmail.com</email>
             <organization>DarkArtsBM</organization>
-            <organizationUrl>https://github.com/darkartsbm</organizationUrl>
+            <organizationUrl>https://github.com/DarkArtsBM</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/darkartsbm/seu-repositorio.git</connection>
-        <developerConnection>scm:git:ssh://github.com:darkartsbm/seu-repositorio.git</developerConnection>
-        <url>https://github.com/darkartsbm/seu-repositorio/tree/main</url>
+        <connection>scm:git:git://github.com/DarkArtsBM/ollama-telegram-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:git@github.com:DarkArtsBM/ollama-telegram-spring-boot-starter.git</developerConnection>
+        <url>https://github.com/DarkArtsBM/ollama-telegram-spring-boot-starter</url>
     </scm>
 
     <properties>
