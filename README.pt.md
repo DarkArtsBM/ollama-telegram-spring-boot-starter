@@ -14,7 +14,7 @@ Adicione a dependência no seu `pom.xml`:
 <dependency>
     <groupId>io.github.darkartsbm</groupId>
     <artifactId>ollama-telegram-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 
