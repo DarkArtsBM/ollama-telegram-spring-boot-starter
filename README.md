@@ -58,6 +58,7 @@ meubot.telegram.username=YOUR_BOT_USERNAME
 # --- AI Settings (Ollama) ---
 meubot.ollama.url=http://localhost:11434/api/chat
 meubot.ollama.model=llama3.2:1b
+meubot.ollama.max-messages=10
 
 Note: I chose llama3.2:1b as the default because it is lightweight and functional, but feel free to use any model you have downloaded by simply changing the parameter in your config file.
 

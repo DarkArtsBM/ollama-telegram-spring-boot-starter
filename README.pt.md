@@ -66,6 +66,7 @@ meubot.telegram.username=NOME_DO_SEU_BOT
 # --- Configurações da IA (Ollama) ---
 meubot.ollama.url=http://localhost:11434/api/chat
 meubot.ollama.model=llama3.2:1b
+meubot.ollama.max-messages=10
 
 > **Obs:** Preferi deixar o `llama3.2:1b` como padrão por ser leve e funcional, mas sinta-se livre para usar qualquer modelo que você baixar, basta alterar o parâmetro no seu arquivo de configurações.
 
